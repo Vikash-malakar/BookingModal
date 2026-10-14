@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+
+  /* Accessible focus indicators */
+  :focus-visible {
+    outline: 2px solid #0d9488;
+    outline-offset: 2px;
+  }
+}
+
+/* Custom range slider styling for interactive explorer */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 9999px;
+  background: #e2e8f0;
+}
+
+input[type="range"]::-moz-range-track {
+  height: 6px;
+  border-radius: 9999px;
+  background: #e2e8f0;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #0f766e;
+  border: 3px solid #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  margin-top: -7px;
+  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.18);
+  background: #115e59;
+  box-shadow: 0 4px 8px rgba(15, 118, 110, 0.35);
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+  transform: scale(0.95);
+  background: #134e4a;
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #0f766e;
+  border: 3px solid #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Button micro-interaction standard classes */
+.btn-press {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-press:hover {
+  transform: translateY(-1px);
+}
+.btn-press:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
